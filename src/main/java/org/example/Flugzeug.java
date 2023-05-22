@@ -1,20 +1,22 @@
 package org.example;
 
 public class Flugzeug {
-    private int sitzplätze;
-    private double gewicht;
-    private String modell;
+    private final int sitzplaetze;
+    private final double gewicht;
+    private final String modell;
 
-    public Flugzeug(int sitzplätze,double gewicht, String modell){
-        this.sitzplätze = sitzplätze;
+    public Flugzeug(int sitzplaetze,double gewicht, String modell){
+        this.sitzplaetze = sitzplaetze;
         this.gewicht = gewicht;
         this.modell = modell;
     }
 
-    public int getSitzplätze(){
-        return sitzplätze;
+    @SuppressWarnings("unused")
+    public int getSitzplaetze(){
+        return sitzplaetze;
     }
 
+    @SuppressWarnings("unused")
     public double getGewicht() {
         return gewicht;
     }
