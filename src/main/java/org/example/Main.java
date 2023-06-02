@@ -1,5 +1,8 @@
 package org.example;
 
+import io.jexxa.core.JexxaMain;
+import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
+
 import java.util.List;
 
 public class Main {
@@ -15,6 +18,13 @@ public class Main {
         flugzeugVerwaltung.delete(flugzeug747);
         alleFlugzeuge = flugzeugVerwaltung.get();
         alleFlugzeuge.forEach(flugzeug -> System.out.println(flugzeug.getModell()));
+        var jexxaMain = new JexxaMain(Main.class);
+
+        jexxaMain
+
+                .bind(RESTfulRPCAdapter.class).to(FlugzeugVerwaltung.class)
+                .bind(RESTfulRPCAdapter.class).to(jexxaMain.getBoundedContext())
+                .run();
 
     }
 }
