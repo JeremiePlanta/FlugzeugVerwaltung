@@ -6,6 +6,13 @@ import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
 import java.util.List;
 
 public class Main {
+    @SuppressWarnings({"java:S3400", "unused"})
+    // Our business logic ;-)
+    public String greetings()
+    {
+        return "FlugzeugVerwaltung";
+    }
+
     @SuppressWarnings("java:S106")
     public static void main(String[] args) {
         FlugzeugVerwaltung flugzeugVerwaltung = new FlugzeugVerwaltung();
@@ -20,9 +27,11 @@ public class Main {
         alleFlugzeuge.forEach(flugzeug -> System.out.println(flugzeug.getModell()));
         var jexxaMain = new JexxaMain(Main.class);
 
+
         jexxaMain
 
                 .bind(RESTfulRPCAdapter.class).to(FlugzeugVerwaltung.class)
+                .bind(RESTfulRPCAdapter.class).to(Main.class)
                 .bind(RESTfulRPCAdapter.class).to(jexxaMain.getBoundedContext())
                 .run();
 
