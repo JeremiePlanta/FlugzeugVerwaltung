@@ -1,20 +1,21 @@
 package org.example.domain;
 
-import org.example.domain.Flugzeug;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class FlugzeugVerwaltung {
-    private final List<Flugzeug> flugzeugList  = new ArrayList<>();
 
+    private final FlugzeugRepository flugzeugRepository;
+
+    public FlugzeugVerwaltung(FlugzeugRepository flugzeugRepository){
+        this.flugzeugRepository = flugzeugRepository;
+    }
     public void add(Flugzeug flugzeug){
-        flugzeugList.add(flugzeug);
+        flugzeugRepository.add(flugzeug);
     }
     public void delete(Flugzeug flugzeug){
-        flugzeugList.remove(flugzeug);
+        flugzeugRepository.remove(flugzeug);
     }
     public List<Flugzeug> get() {
-        return flugzeugList;
+        return flugzeugRepository.getAll();
     }
 }

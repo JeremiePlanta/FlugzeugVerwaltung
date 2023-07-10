@@ -4,6 +4,7 @@ import io.jexxa.core.JexxaMain;
 import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
 import org.example.domain.Flugzeug;
 import org.example.domain.FlugzeugVerwaltung;
+import org.example.infrastructure.drivenadapter.persistence.FlugzeugRepositoryImpl;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Main {
 
     @SuppressWarnings("java:S106")
     public static void main(String[] args) {
-        FlugzeugVerwaltung flugzeugVerwaltung = new FlugzeugVerwaltung();
+        FlugzeugVerwaltung flugzeugVerwaltung = new FlugzeugVerwaltung(new FlugzeugRepositoryImpl());
         Flugzeug flugzeug747 =new Flugzeug(4,200,"Boeing 747");
         Flugzeug flugzeug737 =new Flugzeug(120,2000,"Boeing 737");
         flugzeugVerwaltung.add(flugzeug737);
