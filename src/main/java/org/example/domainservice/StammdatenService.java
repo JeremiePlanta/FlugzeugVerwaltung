@@ -7,8 +7,8 @@ import java.util.List;
 
 public class StammdatenService {
 
-    private static final Flugzeug boeing747 =new Flugzeug(4,200,"Boeing 747");
-    private static final Flugzeug boeing737 =new Flugzeug(120,2000,"Boeing 737");
+    private static final Flugzeug boeing747 =new Flugzeug(4,200,"Boeing 747", "232235436");
+    private static final Flugzeug boeing737 =new Flugzeug(120,2000,"Boeing 737", "22323543");
 
     private final FlugzeugRepository flugzeugRepository;
 
@@ -26,6 +26,6 @@ public class StammdatenService {
         }
         flugzeugRepository
                 .getAll()
-                .forEach( element -> System.out.println(element.getModell()));
+                .forEach( element -> System.out.println(element.getSeriennummer()));
     }
 }
