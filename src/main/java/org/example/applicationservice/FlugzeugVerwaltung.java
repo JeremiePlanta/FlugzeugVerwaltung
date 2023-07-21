@@ -1,4 +1,7 @@
-package org.example.domain;
+package org.example.applicationservice;
+
+import org.example.domain.Flugzeug;
+import org.example.domain.FlugzeugRepository;
 
 import java.util.List;
 
