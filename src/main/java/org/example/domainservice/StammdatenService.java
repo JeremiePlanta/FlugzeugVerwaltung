@@ -19,9 +19,9 @@ public class StammdatenService {
 
         List<Flugzeug> alleFlugzeuge = flugzeugRepository.getAll();
         if(!alleFlugzeuge.contains(boeing747)){
-            flugzeugRepository.add(boeing737);
+            flugzeugRepository.add(boeing747);
         }
-        if(!alleFlugzeuge.contains(boeing747)){
+        if(!alleFlugzeuge.contains(boeing737)){
             flugzeugRepository.add(boeing737);
         }
         flugzeugRepository

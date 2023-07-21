@@ -19,17 +19,13 @@ public class Main {
 
     @SuppressWarnings("java:S106")
     public static void main(String[] args) {
-        FlugzeugRepository flugzeugRepository = new FlugzeugRepositoryImpl(new Properties());
-        FlugzeugVerwaltung flugzeugVerwaltung = new FlugzeugVerwaltung(flugzeugRepository);
-        StammdatenService stammdatenService = new StammdatenService(flugzeugRepository);
-        stammdatenService.initStammdaten();
 
         var jexxaMain = new JexxaMain(Main.class);
 
-
         jexxaMain
+                .bootstrap(StammdatenService.class).with(StammdatenService::initStammdaten)
 
-                .bind(RESTfulRPCAdapter.class).to(flugzeugVerwaltung)
+                .bind(RESTfulRPCAdapter.class).to(FlugzeugVerwaltung.class)
                 .bind(RESTfulRPCAdapter.class).to(Main.class)
                 .bind(RESTfulRPCAdapter.class).to(jexxaMain.getBoundedContext())
                 .run();
