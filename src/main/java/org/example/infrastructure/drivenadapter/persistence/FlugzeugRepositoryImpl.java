@@ -1,26 +1,34 @@
 package org.example.infrastructure.drivenadapter.persistence;
 
+import io.jexxa.infrastructure.RepositoryManager;
+import io.jexxa.infrastructure.persistence.repository.IRepository;
 import org.example.domain.Flugzeug;
 import org.example.domain.FlugzeugRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class FlugzeugRepositoryImpl implements FlugzeugRepository {
 
-    private final List<Flugzeug> flugzeugList = new ArrayList<>();
+    private final IRepository<Flugzeug, String> flugzeugRepository;
+
+    public FlugzeugRepositoryImpl(Properties properties) {
+        this.flugzeugRepository = RepositoryManager.getRepository(Flugzeug.class, Flugzeug::getSeriennummer,properties);
+    }
+
     @Override
     public List<Flugzeug> getAll() {
-        return this.flugzeugList;
+        return this.flugzeugRepository.get();
     }
 
     @Override
     public void remove(Flugzeug flugzeug) {
-        flugzeugList.remove(flugzeug);
+        flugzeugRepository.remove(flugzeug.getSeriennummer());
     }
 
     @Override
     public void add(Flugzeug flugzeug) {
-        flugzeugList.add(flugzeug);
+        flugzeugRepository.add(flugzeug);
     }
 }

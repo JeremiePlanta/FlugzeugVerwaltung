@@ -7,6 +7,8 @@ import org.example.domain.FlugzeugRepository;
 import org.example.domainservice.StammdatenService;
 import org.example.infrastructure.drivenadapter.persistence.FlugzeugRepositoryImpl;
 
+import java.util.Properties;
+
 public class Main {
     @SuppressWarnings({"java:S3400", "unused"})
     // Our business logic ;-)
@@ -17,7 +19,7 @@ public class Main {
 
     @SuppressWarnings("java:S106")
     public static void main(String[] args) {
-        FlugzeugRepository flugzeugRepository = new FlugzeugRepositoryImpl();
+        FlugzeugRepository flugzeugRepository = new FlugzeugRepositoryImpl(new Properties());
         FlugzeugVerwaltung flugzeugVerwaltung = new FlugzeugVerwaltung(flugzeugRepository);
         StammdatenService stammdatenService = new StammdatenService(flugzeugRepository);
         stammdatenService.initStammdaten();
