@@ -1,27 +1,23 @@
 package org.example.domain;
 
 import io.jexxa.addend.applicationcore.Aggregate;
+import io.jexxa.addend.applicationcore.AggregateID;
 
 import java.util.Objects;
 
 @Aggregate
 public class Flugzeug {
-    private final int sitzplaetze;
-    private final double gewicht;
-    private final String modell;
+    private final FlugzeugDaten flugzeugDaten;
+    private final Seriennummer seriennummer;
 
-    private final String seriennummer;
-
-    public Flugzeug(int sitzplaetze,double gewicht, String modell, String seriennummer){
-        this.sitzplaetze = sitzplaetze;
-        this.gewicht = gewicht;
-        this.modell = modell;
+    public Flugzeug(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten){
+        this.flugzeugDaten = flugzeugDaten;
         this.seriennummer = seriennummer;
     }
 
     @SuppressWarnings("unused")
     public int getSitzplaetze(){
-        return sitzplaetze;
+        return flugzeugDaten.sitzplaetze();
     }
 
     @Override
@@ -29,24 +25,20 @@ public class Flugzeug {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flugzeug flugzeug = (Flugzeug) o;
-        return sitzplaetze == flugzeug.sitzplaetze && Double.compare(flugzeug.gewicht, gewicht) == 0 && Objects.equals(modell, flugzeug.modell) && Objects.equals(seriennummer, flugzeug.seriennummer);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(sitzplaetze, gewicht, modell, seriennummer);
+        return Objects.equals(seriennummer, flugzeug.seriennummer);
     }
 
     @SuppressWarnings("unused")
     public double getGewicht() {
-        return gewicht;
+        return flugzeugDaten.gewicht();
     }
 
     @SuppressWarnings("unused")
     public String getModell() {
-        return modell;
+        return flugzeugDaten.modell();
     }
 
     @SuppressWarnings("unused")
-    public String getSeriennummer(){return seriennummer;}
+    @AggregateID
+    public Seriennummer getSeriennummer(){return seriennummer;}
 }

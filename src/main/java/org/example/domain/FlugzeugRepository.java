@@ -7,7 +7,7 @@ import java.util.List;
 public interface FlugzeugRepository {
      List<Flugzeug> getAll();
 
-     void remove(Flugzeug flugzeug);
+     void remove(Seriennummer Seriennummer);
 
      void add(Flugzeug flugzeug);
 }
