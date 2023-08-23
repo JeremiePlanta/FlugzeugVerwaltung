@@ -1,10 +1,12 @@
 package org.example.applicationservice;
 
+import io.jexxa.addend.applicationcore.ApplicationService;
 import org.example.domain.Flugzeug;
 import org.example.domain.FlugzeugRepository;
 
 import java.util.List;
 
+@ApplicationService
 public class FlugzeugVerwaltung {
 
     private final FlugzeugRepository flugzeugRepository;

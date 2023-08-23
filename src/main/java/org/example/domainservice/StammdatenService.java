@@ -1,10 +1,11 @@
 package org.example.domainservice;
 
+import io.jexxa.addend.applicationcore.DomainService;
 import org.example.domain.Flugzeug;
 import org.example.domain.FlugzeugRepository;
 
 import java.util.List;
-
+@DomainService
 public class StammdatenService {
 
     private static final Flugzeug boeing747 =new Flugzeug(4,200,"Boeing 747", "232235436");
