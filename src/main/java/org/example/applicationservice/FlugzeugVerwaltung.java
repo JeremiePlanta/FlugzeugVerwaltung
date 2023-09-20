@@ -1,10 +1,7 @@
 package org.example.applicationservice;
 
 import io.jexxa.addend.applicationcore.ApplicationService;
-import org.example.domain.Flugzeug;
-import org.example.domain.FlugzeugDaten;
-import org.example.domain.FlugzeugRepository;
-import org.example.domain.Seriennummer;
+import org.example.domain.*;
 
 import java.util.List;
 
@@ -16,13 +13,21 @@ public class FlugzeugVerwaltung {
     public FlugzeugVerwaltung(FlugzeugRepository flugzeugRepository){
         this.flugzeugRepository = flugzeugRepository;
     }
-    public void add(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten){
-        flugzeugRepository.add(new Flugzeug(seriennummer, flugzeugDaten));
+    public void add(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten, KontaktDaten kontaktDaten){
+        flugzeugRepository.add(new Flugzeug(seriennummer, flugzeugDaten, kontaktDaten));
     }
     public void delete(Seriennummer seriennummer){
         flugzeugRepository.remove(seriennummer);
     }
     public List<Seriennummer> get() {
         return flugzeugRepository.getAll().stream().map(Flugzeug::getSeriennummer).toList();
+    }
+
+    public void registriere(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten, KontaktDaten kontaktDaten){
+
+    }
+
+    public void verifiziere(Seriennummer seriennummer, VerifizierungsCode VerifizierungsCode){
+
     }
 }

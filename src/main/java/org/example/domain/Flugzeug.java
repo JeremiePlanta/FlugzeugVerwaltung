@@ -7,17 +7,24 @@ import java.util.Objects;
 
 @Aggregate
 public class Flugzeug {
-    private final FlugzeugDaten flugzeugDaten;
-    private final Seriennummer seriennummer;
 
-    public Flugzeug(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten){
+    private final Seriennummer seriennummer;
+    private final FlugzeugDaten flugzeugDaten;
+    private final KontaktDaten kontaktDaten;
+
+
+    public Flugzeug(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten, KontaktDaten kontaktDaten){
         this.flugzeugDaten = flugzeugDaten;
         this.seriennummer = seriennummer;
+        this.kontaktDaten = kontaktDaten;
     }
 
-    @SuppressWarnings("unused")
-    public int getSitzplaetze(){
-        return flugzeugDaten.sitzplaetze();
+    public FlugzeugDaten getFlugzeugDaten() {
+        return flugzeugDaten;
+    }
+
+    public KontaktDaten getKontaktDaten() {
+        return kontaktDaten;
     }
 
     @Override
@@ -28,15 +35,6 @@ public class Flugzeug {
         return Objects.equals(seriennummer, flugzeug.seriennummer);
     }
 
-    @SuppressWarnings("unused")
-    public double getGewicht() {
-        return flugzeugDaten.gewicht();
-    }
-
-    @SuppressWarnings("unused")
-    public String getModell() {
-        return flugzeugDaten.modell();
-    }
 
     @SuppressWarnings("unused")
     @AggregateID

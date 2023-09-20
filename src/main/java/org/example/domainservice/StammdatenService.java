@@ -1,10 +1,7 @@
 package org.example.domainservice;
 
 import io.jexxa.addend.applicationcore.DomainService;
-import org.example.domain.Flugzeug;
-import org.example.domain.FlugzeugDaten;
-import org.example.domain.FlugzeugRepository;
-import org.example.domain.Seriennummer;
+import org.example.domain.*;
 
 import java.util.List;
 @DomainService
@@ -17,8 +14,8 @@ public class StammdatenService {
     }
     public void initStammdaten(){
 
-        Flugzeug boeing747 =new Flugzeug(new Seriennummer("232235436"), new FlugzeugDaten(4,200,"Boeing 747"));
-        Flugzeug boeing737 =new Flugzeug(new Seriennummer("22323543"), new FlugzeugDaten(120,2000,"Boeing 737"));
+        Flugzeug boeing747 =new Flugzeug(new Seriennummer("232235436"), new FlugzeugDaten(4,200,"Boeing 747"), new KontaktDaten(new EmailAdresse("user@gmail.com"),"Jonas", "Pfeifer"));
+        Flugzeug boeing737 =new Flugzeug(new Seriennummer("22323543"), new FlugzeugDaten(120,2000,"Boeing 737"), new KontaktDaten(new EmailAdresse("geni@gmail.com"),"Bernd", "Brot") );
 
         List<Flugzeug> alleFlugzeuge = flugzeugRepository.getAll();
         if(!alleFlugzeuge.contains(boeing747)){
