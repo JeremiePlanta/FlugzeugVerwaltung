@@ -3,11 +3,9 @@ package org.example;
 import io.jexxa.core.JexxaMain;
 import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
 import org.example.applicationservice.FlugzeugVerwaltung;
-import org.example.domain.FlugzeugRepository;
-import org.example.domainservice.StammdatenService;
-import org.example.infrastructure.drivenadapter.persistence.FlugzeugRepositoryImpl;
 
-import java.util.Properties;
+import org.example.domainservice.StammdatenService;
+
 
 public class Main {
     @SuppressWarnings({"java:S3400", "unused"})
