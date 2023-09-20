@@ -11,3 +11,11 @@ Es sollen folgende Features implementiert werden:
 - Es wird ein 6-stelliger Zahlencode an die angegebene E-Mail-Adresse verschickt
 - Zahlencode muss zusammen mit der Seriennummer übergeben werden, damit das Fahrrad in die FahrradVerwaltung hinzugefügt wird
 - Der Zahlencode verliert nach 24 Stunden seine Gültigkeit
+
+Abbildung auf DDD Mustersprache und Klassen:
+ApplicationService: FlugzeugVerwaltung
+Neue Methoden: registriere und verifiziere
+ValueObjects: E-Mail-Adresse, KontaktDaten, VerifizierungsCode
+Aggregate: RegistrierungsDaten, Flugzeug
+Repository: RegistrierungsDatenRepository
+DomaintEvent: VerifizierungsCodeVerschickt
