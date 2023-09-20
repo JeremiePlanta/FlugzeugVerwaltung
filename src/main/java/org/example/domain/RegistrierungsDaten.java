@@ -5,6 +5,8 @@ import io.jexxa.addend.applicationcore.AggregateID;
 
 import java.util.UUID;
 
+import static org.example.domain.DomainEventPublisher.publish;
+
 @Aggregate
 public class RegistrierungsDaten {
     private final Seriennummer seriennummer;
@@ -29,6 +31,7 @@ public class RegistrierungsDaten {
     }
 
     public void sendVerifizierungsCode(){
+        publish(new VerifizierungsCodeVerschickt(kontaktDaten.emailAdresse(), verifizierungsCode));
     }
     @AggregateID
     public Seriennummer getSeriennummer() {
