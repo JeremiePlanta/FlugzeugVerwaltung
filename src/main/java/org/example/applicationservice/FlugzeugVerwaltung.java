@@ -10,8 +10,11 @@ public class FlugzeugVerwaltung {
 
     private final FlugzeugRepository flugzeugRepository;
 
-    public FlugzeugVerwaltung(FlugzeugRepository flugzeugRepository){
+    private final RegistrierungsDatenRepository registrierungsDatenRepository;
+
+    public FlugzeugVerwaltung(FlugzeugRepository flugzeugRepository, RegistrierungsDatenRepository registrierungsDatenRepository){
         this.flugzeugRepository = flugzeugRepository;
+        this.registrierungsDatenRepository = registrierungsDatenRepository;
     }
     public void add(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten, KontaktDaten kontaktDaten){
         flugzeugRepository.add(new Flugzeug(seriennummer, flugzeugDaten, kontaktDaten));
@@ -24,7 +27,7 @@ public class FlugzeugVerwaltung {
     }
 
     public void registriere(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten, KontaktDaten kontaktDaten){
-
+        registrierungsDatenRepository.add(new RegistrierungsDaten(seriennummer,flugzeugDaten,kontaktDaten));
     }
 
     public void verifiziere(Seriennummer seriennummer, VerifizierungsCode VerifizierungsCode){
