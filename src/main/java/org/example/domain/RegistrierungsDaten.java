@@ -22,6 +22,7 @@ public class RegistrierungsDaten {
         this.flugzeugDaten = flugzeugDaten;
         this.kontaktDaten = kontaktDaten;
         this.verifizierungsCode = new VerifizierungsCode(UUID.randomUUID().toString());
+        sendVerifizierungsCode();
     }
 
     public void verifiziere(VerifizierungsCode verifizierungsCode) throws VerifizierungsCodeUngueltig {
