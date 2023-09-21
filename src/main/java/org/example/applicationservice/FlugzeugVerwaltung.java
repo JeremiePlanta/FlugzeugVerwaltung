@@ -30,7 +30,12 @@ public class FlugzeugVerwaltung {
         registrierungsDatenRepository.add(new RegistrierungsDaten(seriennummer,flugzeugDaten,kontaktDaten));
     }
 
-    public void verifiziere(Seriennummer seriennummer, VerifizierungsCode VerifizierungsCode){
+    public void verifiziere(Seriennummer seriennummer, VerifizierungsCode verifizierungsCode) throws VerifizierungsCodeUngueltig {
+        RegistrierungsDaten registrierungsDaten = registrierungsDatenRepository.get(seriennummer);
+        registrierungsDaten.verifiziere(verifizierungsCode);
+
+        add(seriennummer, registrierungsDaten.getFlugzeugDaten(), registrierungsDaten.getKontaktDaten());
+        registrierungsDatenRepository.remove(seriennummer);
 
     }
 }
