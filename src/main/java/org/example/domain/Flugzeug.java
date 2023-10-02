@@ -9,8 +9,8 @@ import java.util.Objects;
 public class Flugzeug {
 
     private final Seriennummer seriennummer;
-    private final FlugzeugDaten flugzeugDaten;
-    private final KontaktDaten kontaktDaten;
+    private FlugzeugDaten flugzeugDaten;
+    private KontaktDaten kontaktDaten;
 
 
     public Flugzeug(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten, KontaktDaten kontaktDaten){
@@ -39,4 +39,9 @@ public class Flugzeug {
     @SuppressWarnings("unused")
     @AggregateID
     public Seriennummer getSeriennummer(){return seriennummer;}
+
+    public void aktualisiere(FlugzeugDaten flugzeugDaten, KontaktDaten kontaktDaten){
+        this.flugzeugDaten = flugzeugDaten;
+        this.kontaktDaten = kontaktDaten;
+    }
 }

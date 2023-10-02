@@ -22,6 +22,13 @@ public class FlugzeugVerwaltung {
     public void delete(Seriennummer seriennummer){
         flugzeugRepository.remove(seriennummer);
     }
+
+    public void aktualisiere(Seriennummer seriennummer, FlugzeugDaten flugzeugDaten, KontaktDaten kontaktDaten){
+        Flugzeug flugzeug = flugzeugRepository.get(seriennummer).orElseThrow();
+        flugzeug.aktualisiere(flugzeugDaten, kontaktDaten);
+        flugzeugRepository.update(flugzeug);
+
+    }
     public List<Seriennummer> get() {
         return flugzeugRepository.getAll().stream().map(Flugzeug::getSeriennummer).toList();
     }

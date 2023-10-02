@@ -5,6 +5,7 @@ Es sollen folgende Features implementiert werden:
 - Hinzufügen eines Flugzeugs in die FlugzeugVerwaltung
 - Löschen eines Flugzeugs aus der FlugzeugVerwaltung
 - Anzeigen aller Flugzeuge aus der Flugzeugverwaltung
+- Aktualisieren eines Flugzeugs aus der FlugzeugVerwaltung
 
 [User-Story Flugzeug Registrierung]Als FlugzeugManager möchte ich, dass ein Kunde sein Flugzeug Registrieren muss, damit ich die möglichkeit habe die RegistrierungsDaten automatisch zu verifizieren.
 - Bei der Registrierung müssen gültige KontaktDaten und FlugzeugDaten angegeben werden.

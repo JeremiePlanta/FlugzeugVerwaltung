@@ -9,6 +9,7 @@ import org.example.domain.Seriennummer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 @DrivenAdapter
 public class FlugzeugRepositoryImpl implements FlugzeugRepository {
@@ -32,5 +33,13 @@ public class FlugzeugRepositoryImpl implements FlugzeugRepository {
     @Override
     public void add(Flugzeug flugzeug) {
         flugzeugRepository.add(flugzeug);
+    }
+
+    public void update(Flugzeug flugzeug){
+        flugzeugRepository.update(flugzeug);
+    }
+
+    public Optional<Flugzeug> get(Seriennummer seriennummer){
+        return flugzeugRepository.get(seriennummer);
     }
 }
